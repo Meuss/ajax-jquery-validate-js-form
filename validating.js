@@ -1,8 +1,8 @@
 var $ = jQuery.noConflict();
 
 $(function () {
-  // TODO: ajouter google spreadsheets....
 
+  //TODO: add your form id here
   var validator = $("#myform").validate({
 
     //Callback for handling the actual submit when the form is valid.
@@ -11,14 +11,14 @@ $(function () {
       // The form is valid, show the captcha (in the callback function of the recaptcha we submit via ajax)
       $("#primary").addClass('recaptcha-showing');
 
-    }, // end of SubmitHandler
+    },
 
     keyup: function(element){
       return element.valid();
     },
-
-    wrapper: 'div', //wrap errors in div 
-
+    //wrap validation errors in divs
+    wrapper: 'div',
+    //add your validation rules here
     rules: {
       name: {
         required: true
@@ -29,6 +29,7 @@ $(function () {
     },
 
     debug: true,
+    
     highlight: function(element, errorClass, validClass) {
       $(element).parent().parent().addClass(errorClass).removeClass(validClass);
 

@@ -5,28 +5,28 @@ error_reporting(E_ALL);
 require_once('./PHPMailer/class.phpmailer.php');
 
 /*--------------------------------------------------------*/
-/*-----Initial setup, test values
+/*-----Initial setup
 /*--------------------------------------------------------*/
 
+// Include the PHPMailer plugin
 $email = new PHPMailer();
 
 $post = $_POST;
-//test the infos to kill jql / js injections
+// Testing to kill jql / js injections (func declared at bottom)
 foreach ($post as $postinfo) {
   $postinfo = test_input($postinfo);
 }
 
-//ADDING THE GOOGLE CAPTCHA CHECK
+// Adding the Google Recaptcha check
+// TODO: set your secret key here!
     
 $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=6LcD0h0TAAAAAL_XJ3-xuBAsZAViQMkyWJI4_l1G&response=".$_POST['g-recaptcha-response']."&remoteip=".$_SERVER['REMOTE_ADDR']);
 $googleobj = json_decode($response);
 $verified = $googleobj->success;
 
 if ($verified === true){
-  // if google is verified, do everything
-
   /*--------------------------------------------------------*/
-  // Email Template for Client
+  // Email Template
   /*--------------------------------------------------------*/
   $email_user = '';
   // intro
@@ -42,12 +42,10 @@ if ($verified === true){
   // outro
     $email_user .= '<p>Goodbye!</p>';
 
-
 /*--------------------------------------------------------*/
-// Sending the emails
+// Sending the email
 /*--------------------------------------------------------*/
 
-  //sending mail to user
   $email->Subject = 'Your awesome data';
   $email->From = 'thomas.miller147@gmail.com';
   $email->FromName = 'Thomas Miller';
@@ -58,7 +56,7 @@ if ($verified === true){
   $email->send();
 
 
-}// ending google recaptcha check
+}// Ending google recaptcha check
 
 /*--------------------------------------------------------*/
 // Function declarations

@@ -18,13 +18,14 @@
             <label for="email" class="col-sm-4">Email address:</label>
             <input type="email" class="col-sm-8" id="email" name="email">
           </div>
+          <!-- get your key from google recaptcha, don't forget the data-callback function here! -->
           <div class="g-recaptcha" data-sitekey="6LcD0h0TAAAAAHC2W6f6k1zIhVzZ4es2nsV-VeAd" data-callback="submitForm"></div>
 
           <button type="submit" class="btn btn-default col-sm-offset-5 col-sm-2">Submit</button>
         </form>
+        <!-- this div will not be displayed until after the submitForm() has run. -->
         <div id="confirmation"><p>Email has been sent, check your inbox!</p></div>
       </div>
-      <!-- Text that will appear after form is sent. -->
       <div class="row explanations">
         <p class="col-sm-8">The goal here is to use the <a href="https://jqueryvalidation.org/">jquery validation plugin</a> to check the form client side.
         Once the validation is done and the submit button is clicked, making a lightbox for google's recaptcha to avoid spam.
