@@ -9,7 +9,6 @@ It's a form that uses the jQuery Validation Plugin to validate the user's input 
 ![alt tag](https://camo.githubusercontent.com/0d858d6dac4d3f6fab7d42de2c09d32ee2de9c5b/68747470733a2f2f7261772e6769746875622e636f6d2f5048504d61696c65722f5048504d61696c65722f6d61737465722f6578616d706c65732f696d616765732f7068706d61696c65722e706e67)
 
 ##TODO
-- Comment the code!
-- Prepare it for translations (for Polylang)
+- Prepare it for translations (for Polylang as well as google's recaptcha translations)
 - Add some design and make transitions fadein/out
 - Make it send another ajax request, this time sending the data to google spreadsheets
