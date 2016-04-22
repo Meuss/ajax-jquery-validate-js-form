@@ -8,5 +8,39 @@ body{
     max-width: 100%;
   }
 input{
-  margin-bottom: 20px;
+  margin-bottom: 50px;
+}
+.g-recaptcha{
+  display: none;
+}
+#primary.recaptcha-showing .g-recaptcha{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+}
+.g-recaptcha>div{
+  padding: 100px;
+  border-radius: 5px;
+  background-color: #fefefe;
+}
+#email-error,
+#name-error{
+  float: right;
+  color: red;
+}
+#confirmation{
+  display: none;
+}
+.confirm #confirmation{
+  display: block;
+}
+.confirm form{
+  display: none;
 }
